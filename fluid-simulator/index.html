@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Fluid Simulation | Lockoo</title>
+
+  <!-- Primary Meta -->
+  <meta name="title" content="Fluid Simulation | Lockoo">
+  <meta name="description" content="Interactive WebGL fluid dynamics simulation">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lockoo.dev/fluid-simulator">
+  <meta property="og:title" content="Fluid Simulation | Lockoo">
+  <meta property="og:description" content="Interactive WebGL fluid dynamics simulation">
+  <meta property="og:image" content="https://lockoo.dev/assets/img/hero.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://lockoo.dev/fluid-simulator">
+  <meta name="twitter:title" content="Fluid Simulation | Lockoo">
+  <meta name="twitter:description" content="Interactive WebGL fluid dynamics simulation">
+  <meta name="twitter:image" content="https://lockoo.dev/assets/img/hero.png">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" href="../assets/img/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
+
+  <meta name="theme-color" content="#9b59b6">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    #canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 14px;
+      padding: 8px 16px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .back-link i {
+      margin-right: 6px;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+
+  <a href="../" class="back-link">
+    <i class="fas fa-arrow-left"></i> Back to main
+  </a>
+
+  <script type="module">
+    import { FluidSimulator } from '../dist/fluid-simulation.es.js'
+
+    const simulator = new FluidSimulator({
+      canvas: '#canvas',
+      storageKey: 'fluidSimConfig_standalone'
+    })
+  </script>
+</body>
+
+</html>

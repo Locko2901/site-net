@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lockoo's Info-Panel</title>
+
+  <!-- Primary Meta -->
+  <meta name="title" content="Lockoo's Info-Panel">
+  <meta name="description" content="Rawr XD">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lockoo.dev/">
+  <meta property="og:title" content="Lockoo's Info-Panel">
+  <meta property="og:description" content="Rawr XD">
+  <meta property="og:image" content="https://lockoo.dev/assets/img/hero.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://lockoo.dev/">
+  <meta name="twitter:title" content="Lockoo's Info-Panel">
+  <meta name="twitter:description" content="Rawr XD">
+  <meta name="twitter:image" content="https://lockoo.dev/assets/img/hero.png">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" href="./assets/img/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="./assets/img/favicon.png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="./assets/css/main.css">
+
+  <meta name="theme-color" content="#9b59b6">
+</head>
+
+<body>
+  <!-- Fluid Simulation Canvas -->
+  <canvas id="canvas"></canvas>
+
+  <!-- Info Panel -->
+  <div id="info-panel">
+    <div class="profile">
+      <section class="intro">
+        <div class="intro-text">
+          <h1>hey, i'm lockoo ^^</h1>
+          <p> i'm really good at losing track of time.
+            <br /><br />
+            i write code that is arguably more complicated than it needs to be. check my github if you want to see
+            simple ideas that spiraled out of control.
+            <br /><br />
+            i'm usually on discord. if i don't reply, i'm either asleep or taking a break.
+            <br /><br />
+            anyway, hope you're having a good day - maybe i'll see you around.
+          </p>
+
+        </div>
+      </section>
+      <div class="social-links">
+        <a href="https://github.com/locko2901" class="social-link"><i class="fab fa-github"></i></a>
+        <a href="https://discordapp.com/users/550325738990206983" class="social-link"><i class="fab fa-discord"></i></a>
+        <a href="https://steamcommunity.com/profiles/76561198992749051/" class="social-link">
+          <i class="fab fa-steam"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hint -->
+  <div class="hint" id="hint">
+    Press H to have fun with fluid simulation
+    <a href="./fluid-simulator/" class="fluid-link" title="Full controls & settings that persist">or open standalone sim with
+      persisting settings</a>
+  </div>
+
+  <!-- Fluid Simulation -->
+  <script type="module">
+    import { FluidSimulator } from './dist/fluid-simulation.es.js'
+    const simulator = new FluidSimulator({
+      canvas: '#canvas',
+      forceHideUI: true,
+      loadSavedConfig: false
+    })
+    const infoPanel = document.getElementById('info-panel')
+    const hint = document.getElementById('hint')
+    let fluidMode = false
+
+    document.addEventListener('keydown', (e) => {
+      const key = e.key.toLowerCase()
+      if (!fluidMode && key !== ' ' && key !== 'h') {
+        e.stopPropagation()
+      }
+    }, true)
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key.toLowerCase() === 'h' && !fluidMode) {
+        fluidMode = true
+        sessionStorage.setItem('fluidMode', 'true')
+        infoPanel.classList.add('hidden')
+        hint.classList.add('hidden')
+      }
+    })
+  </script>
+</body>
+
+</html>
