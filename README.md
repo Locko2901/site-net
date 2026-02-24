@@ -1,10 +1,10 @@
-# lockoo.dev
+# lockoo.net
 
 Personal link hub.
 
 ## Live
 
-[lockoo.dev](https://lockoo.dev)
+[lockoo.dev](https://lockoo.net)
 
 ## License
 
