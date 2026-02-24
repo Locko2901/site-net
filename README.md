@@ -4,7 +4,7 @@ Personal link hub.
 
 ## Live
 
-[lockoo.dev](https://lockoo.net)
+[lockoo.net](https://lockoo.net)
 
 ## License
 
